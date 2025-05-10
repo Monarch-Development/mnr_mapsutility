@@ -1,4 +1,4 @@
----@diagnostic disable: lowercase-global, duplicate-set-field
+---@diagnostic disable: duplicate-set-field, lowercase-global
 
 if GetResourceState("qb-target") ~= "started" then return end
 

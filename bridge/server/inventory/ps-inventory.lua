@@ -1,8 +1,9 @@
+---@diagnostic disable: duplicate-set-field, lowercase-global
+
 if GetResourceState("ps-inventory") ~= "started" then return end
 
 local ps_inventory = exports["ps-inventory"]
 
----@diagnostic disable: duplicate-set-field
 inventory = {}
 
 function inventory.GetItemCount(source, items)

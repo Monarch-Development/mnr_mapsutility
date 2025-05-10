@@ -1,8 +1,9 @@
+---@diagnostic disable: duplicate-set-field, lowercase-global
+
 if GetResourceState("qbx_core") ~= "started" then return end
 
-QBX = exports.qbx_core
+local QBX = exports.qbx_core
 
----@diagnostic disable: duplicate-set-field
 server = {}
 
 function server.HasGroups(source, groups)

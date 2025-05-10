@@ -1,8 +1,9 @@
+---@diagnostic disable: duplicate-set-field, lowercase-global
+
 if GetResourceState("ox_inventory") ~= "started" then return end
 
 local ox_inventory = exports.ox_inventory
 
----@diagnostic disable: duplicate-set-field
 inventory = {}
 
 function inventory.GetItemCount(source, items)

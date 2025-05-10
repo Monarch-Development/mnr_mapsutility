@@ -1,8 +1,9 @@
+---@diagnostic disable: duplicate-set-field, lowercase-global
+
 if GetResourceState("ox_core") ~= "started" then return end
 
 local Ox = require "@ox_core/lib/init"
 
----@diagnostic disable: duplicate-set-field
 server = {}
 
 function server.HasGroups(source, groups)
