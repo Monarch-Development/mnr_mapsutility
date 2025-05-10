@@ -1,0 +1,19 @@
+{
+    "menu": {
+        "access": "Acceso",
+        "locked": "Bloqueado 🔴",
+        "unlocked": "Desbloqueado 🟢"
+    },
+    "notify": {
+        "access-denied": "Acceso Denegado",
+        "reached-floor": "Has alcanzado la planta seleccionada",
+        "seat-occupied": "El asiento ya está ocupado"
+    },
+    "textui": {
+        "elevator": "[E] Ascensor",
+        "sit": "[E] Levantarse"
+    },
+    "target": {
+        "sit": "Sentarse"
+    }
+}
