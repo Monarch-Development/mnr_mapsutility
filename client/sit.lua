@@ -149,11 +149,9 @@ RegisterNetEvent("mnr_mapsutility:client:Sit", function(data)
     local configModel = ConfigSit.Models[model]
     if not configModel then return end
 
-    ---@description NETWORK SECTION FOR AVOID SYNC ERRORS
     local networkSuccess, entity = NetworkChair(data.entity, "register")
     if not networkSuccess then return end
 
-    ---@description OCCUPIED SECTION FOR AVOID PLAYERS BUGS
     local seatOccupied, seatID = IsSeatOccupied(entity)
     if seatOccupied then
         return client.Notify(locale("notify.seat-occupied"), "error")
