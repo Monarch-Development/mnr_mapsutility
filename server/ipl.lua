@@ -27,6 +27,6 @@ lib.addCommand("entityset", {
     print(type(mapName), type(entitySet), type(action))
 
     if mapName and entitySet and action then
-        TriggerClientEvent("melons_mapsutility:client:EditEntitySet", -1, mapName, entitySet, action)
+        TriggerClientEvent("mnr_mapsutility:client:EditEntitySet", -1, mapName, entitySet, action)
     end
 end)

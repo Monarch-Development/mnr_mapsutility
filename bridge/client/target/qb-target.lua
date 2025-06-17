@@ -11,7 +11,7 @@ function target.AddModels(models)
         options = {
             {
                 type = "client",
-                event = "melons_mapsutility:client:Sit",
+                event = "mnr_mapsutility:client:Sit",
                 icon = "fas fa-chair",
                 label = locale("target.sit"),
                 canInteract = function(entity)

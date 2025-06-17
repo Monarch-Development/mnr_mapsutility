@@ -27,20 +27,6 @@ local function CreateIPLZone(zoneData)
     })
 end
 
-local function RemoveAllIPL()
-    for _, iplList in pairs(ConfigIPL.IPL) do
-        for _, ipl in ipairs(iplList) do
-            RemoveIpl(ipl)
-        end
-    end
-end
-
-local function CreateIPLZones()
-    for _, zoneData in pairs(ConfigIPL.Zones) do
-        CreateIPLZone(zoneData)
-    end
-end
-
 local function EditEntitySet(mapName, setName, action)
     local iplList = ConfigIPL.EntitySets[mapName][setName]
     if not iplList then return end
@@ -50,16 +36,19 @@ local function EditEntitySet(mapName, setName, action)
         UnloadIPL(iplList)
     end
 end
-RegisterNetEvent("melons_mapsutility:client:EditEntitySet", EditEntitySet)
 
-local function LoadDefaultEntitySets()
-    for _, entityData in pairs(ConfigIPL.EntitySets) do
-        LoadIPL(entityData["default"])
+RegisterNetEvent("mnr_mapsutility:client:EditEntitySet", EditEntitySet)
+
+for _, iplList in pairs(ConfigIPL.IPL) do
+    for _, ipl in ipairs(iplList) do
+        RemoveIpl(ipl)
     end
 end
 
-function SetupIPL()
-    RemoveAllIPL()
-    CreateIPLZones()
-    LoadDefaultEntitySets()
+for _, zoneData in pairs(ConfigIPL.Zones) do
+    CreateIPLZone(zoneData)
+end
+
+for _, entityData in pairs(ConfigIPL.EntitySets) do
+    LoadIPL(entityData["default"])
 end

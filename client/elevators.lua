@@ -79,12 +79,6 @@ local function CreateElevator(name, data)
     end
 end
 
-local function CreateElevators()
-    for name, data in pairs(Elevators) do
-        CreateElevator(name, data)
-    end
-end
-
-function SetupElevators()
-    CreateElevators()
+for name, data in pairs(Elevators) do
+    CreateElevator(name, data)
 end

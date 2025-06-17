@@ -1,13 +1,19 @@
 return {
     IPL = {
-        -- ADD IPLS PRESETS HERE
+        ---@description Paste the presets here 🔽 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/ipl]
+        
+        ---@description Paste the presets here 🔼 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/ipl]
     },
 
     EntitySets = {
-        -- ADD EntitySets PRESETS HERE
+        ---@description Paste the presets here 🔽 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/ipl]
+        
+        ---@description Paste the presets here 🔼 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/ipl]
     },
 
     Zones = {
-        -- ADD Zones PRESETS HERE
+        ---@description Paste the presets here 🔽 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/ipl]
+        
+        ---@description Paste the presets here 🔼 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/ipl]
     },
 }

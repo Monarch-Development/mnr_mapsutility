@@ -10,12 +10,12 @@ function target.AddModels(models)
     ox_target:addModel(models, {
         {
             label = locale("target.sit"),
-            name = "melons_mapsutility:sit",
+            name = "mnr_mapsutility:sit",
             icon = "fa-solid fa-chair",
             canInteract = function(entity)
                 return DoesEntityExist(entity)
             end,
-            event = "melons_mapsutility:client:Sit",
+            event = "mnr_mapsutility:client:Sit",
         }
     })
 end

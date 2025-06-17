@@ -3,16 +3,6 @@ local IsSitting = false
 local ClonedEntity = false
 local OldEntity = 0
 
----@description SETUP SECTION INITIALIZATION
-function SetupSeats()
-    local models = {}
-    for model in pairs(ConfigSit.Models) do
-        models[#models+1] = model
-    end
-    target.AddModels(models)
-end
-
----@description FUNCTION FOR CONVERT COORDS BASED ON ENTITY HEADING
 local function RotateOffset(offset, heading)
     local rad = math.rad(heading)
     local cosH = math.cos(rad)
@@ -24,14 +14,13 @@ local function RotateOffset(offset, heading)
     return vec3(newX, newY, offset.z)
 end
 
----@description FUNCTION FOR CHECK IF SEAT IS OCCUPIED
 local function IsSeatOccupied(entity)
     local model = GetEntityModel(entity)
     local configModel = ConfigSit.Models[model]
     if not configModel then return end
 
     local entityNetID = NetworkGetNetworkIdFromEntity(entity)
-    local verifySeats = lib.callback.await("melons_mapsutility:server:GetModelSeats", 200, entityNetID)
+    local verifySeats = lib.callback.await("mnr_mapsutility:server:GetModelSeats", 200, entityNetID)
 
     if verifySeats == 0 then
         return false, 1
@@ -44,7 +33,6 @@ local function IsSeatOccupied(entity)
     end
 end
 
----@description FALLBACK FUNCTION FOR CLONE ENTITY (NORMAL NETWORK REGISTRATION FAILED)
 local function CloneAndNetworkEntity(entity)
     if not DoesEntityExist(entity) then
         return nil, nil
@@ -75,7 +63,6 @@ local function CloneAndNetworkEntity(entity)
     return clonedEntity
 end
 
----@description FUNCTION (MAIN) FOR NETWORK REGISTER/UNREGISTER
 local function NetworkChair(entity, action)
     if action == "register" then
         if not entity then return false, nil end
@@ -111,11 +98,10 @@ local function NetworkChair(entity, action)
     end
 end
 
----@description FUNCTION FOR ANIMATIONS AND CANCEL THEM
 local function PlaySit(entity, seatID)
     IsSitting = entity
     local entityNetID = NetworkGetNetworkIdFromEntity(entity)
-    TriggerServerEvent("melons_mapsutility:server:ModelRegistration", entityNetID, seatID)
+    TriggerServerEvent("mnr_mapsutility:server:ModelRegistration", entityNetID, seatID)
 
     local playerPed = cache.ped or PlayerPedId()
     local model = GetEntityModel(entity)
@@ -142,7 +128,7 @@ local function PlaySit(entity, seatID)
             lib.hideTextUI()
             ClearPedTasks(playerPed)
             seatID -= 1
-            TriggerServerEvent("melons_mapsutility:server:ModelRegistration", entityNetID, seatID)
+            TriggerServerEvent("mnr_mapsutility:server:ModelRegistration", entityNetID, seatID)
             if seatID == 0 then
                 NetworkChair(entity, "unregister")
             end
@@ -155,8 +141,7 @@ local function PlaySit(entity, seatID)
     getup:disable(false)
 end
 
----@description EVENT TRIGGERED BY TARGET (bridge/client/target/*.lua)
-RegisterNetEvent("melons_mapsutility:client:Sit", function(data)
+RegisterNetEvent("mnr_mapsutility:client:Sit", function(data)
     if not data.entity then return end
     if IsSitting and IsSitting == data.entity then return end
 
@@ -176,3 +161,12 @@ RegisterNetEvent("melons_mapsutility:client:Sit", function(data)
 
     PlaySit(entity, seatID)
 end)
+
+
+local models = {}
+
+for model in pairs(ConfigSit.Models) do
+    models[#models+1] = model
+end
+
+target.AddModels(models)

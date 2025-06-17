@@ -8,7 +8,7 @@ return {
         alpha = 255,
         scale = 0.8,
     },
-    ---@description Paste the presets here 🔽 [https://github.com/IlMelons/melons_presets/tree/main/blips]
+    ---@description Paste the presets here 🔽 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/blips]
 
-    ---@description Paste the presets here 🔼 [https://github.com/IlMelons/melons_presets/tree/main/blips]
+    ---@description Paste the presets here 🔼 [https://github.com/Monarch-Development/Monarch-Presets/tree/main/blips]
 }
