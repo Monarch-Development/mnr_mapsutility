@@ -5,7 +5,7 @@ lua54 "yes"
 name "mnr_mapsutility"
 description "Optimized script with Blips, Elevators, IPL and SitAnywhere management"
 author "IlMelons"
-version "1.0.0"
+version "1.0.1"
 repository "https://github.com/Monarch-Development/mnr_mapsutility"
 
 ox_lib "locale"
